@@ -40,19 +40,20 @@ while playing:
         computer_guessing = True
         guess_counter = 0
         guess_min = 1
-        guess_max = 100 #initialize the computer guess to be 1 so we can use it as a parameter for the loop.
+        guess_max = 100
+        #initialize the computer guess to be 1 so we can use it as a parameter for the loop.
         while computer_guessing:
-            guess = random.randint(guess_min,guess_max)
+            guess = round((guess_min + guess_max) / 2)
             print(f'The computer guessed {guess}.')
 
             if guess < secret_num:
                 guess_counter += 1
-                guess_min = guess + 1
+                guess_min = guess
                 print('Your guess is lower than the number!')
                 continue
             elif guess > secret_num:
                 guess_counter += 1
-                guess_max = guess - 1
+                guess_max = guess
                 print('Your guess is higher than the number!')
                 continue
             else:
